@@ -20,7 +20,7 @@ import deep_cnn
 import input  # pylint: disable=redefined-builtin
 import metrics
 import tensorflow as tf
-
+import numpy as np
 
 tf.flags.DEFINE_string('dataset', 'svhn', 'The name of the dataset to use')
 tf.flags.DEFINE_integer('nb_labels', 10, 'Number of output classes')
@@ -87,7 +87,7 @@ def train_teacher(dataset, nb_teachers, teacher_id):
   teacher_preds = deep_cnn.softmax_preds(test_data, ckpt_path_final)
 
   # Store the probability estimates of this teacher in a numpy file
-  np.save(FLAGS.train_dir + "../PREDICTIONS/" + "predictions_teacher_"+str(teacher_id)+".npy", teachers_preds)
+  np.save(FLAGS.preds_dir + "/" + "predictions_teacher_"+str(teacher_id)+".npy", teacher_preds)
 
   # Compute teacher accuracy
   precision = metrics.accuracy(teacher_preds, test_labels)
