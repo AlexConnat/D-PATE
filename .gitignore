@@ -3,3 +3,6 @@
 
 DATA_DIR/*
 RESULTS/*
+
+# Don't track numpy files artefacts (eg: aggregated student labels)
+SRC/*.npy
