@@ -35,7 +35,7 @@ def collect_teachers_predictions(predictions_folder):
         teachers_predictions[teacher_id] = predictions_teacher_i
         # TODO: Why not adding up the raw predictions of teachers themselves, and not the final predictions? (argmax)
 
-    return nb_teachers, nb_samples, nb_classes, teachers_predictions
+    return nb_teachers, nb_samples, nb_classes, teachers_predictions # Returns one-hot encoded teachers_predictions
 
 
 
